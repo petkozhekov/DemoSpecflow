@@ -9,7 +9,7 @@ using TechTalk.SpecFlow;
 namespace SpecFlowDemo.Hooks
 {
 	[Binding]
-	public sealed class aScopedHooks
+	public sealed class ScopedHooks
 	{
 		[BeforeScenario("memes")]
 		public void BeforeScenario()
@@ -22,7 +22,7 @@ namespace SpecFlowDemo.Hooks
 		public void AfterScenario()
 		{
 			BrowserManager.GetInstance().GetDriver().Navigate().GoToUrl("https://www.youtube.com/watch?v=JuM7hObGjWI");
-			Thread.Sleep(200000);
+			Thread.Sleep(20000);
 		}
 	}
 }

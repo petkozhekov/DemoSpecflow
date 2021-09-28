@@ -13,16 +13,13 @@ namespace SpecFlowDemo.Steps
 	[Binding]
 	public sealed class DemoStepsDefinitions
 	{
-
-		// For additional details on SpecFlow step definitions see https://go.specflow.org/doc-stepdef
-
-		private CustomContext _customContext;
+		private ScenarioContext _scenarioContext;
 		private InputsPage _inputsPage;
 		private LinksPage _linksPage;
 
-		public DemoStepsDefinitions(CustomContext customContext)
+		public DemoStepsDefinitions(ScenarioContext context)
 		{
-			_customContext = customContext;
+			_scenarioContext = context;
 			_inputsPage = new InputsPage();
 			_linksPage = new LinksPage();
 		}

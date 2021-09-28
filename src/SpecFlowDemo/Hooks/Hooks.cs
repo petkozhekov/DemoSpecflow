@@ -10,16 +10,23 @@ namespace SpecFlowDemo.Hooks
 	[Binding]
 	public sealed class Hooks
 	{
+		private ScenarioContext _scenarioContext;
+
+		public Hooks(ScenarioContext context)
+		{
+			_scenarioContext = context;
+		}
+
 		[BeforeScenario]
 		public void BeforeScenario()
 		{
-			BrowserManager.GetInstance().GetDriver();
 		}
 
 		[AfterScenario]
 		public void AfterScenario()
 		{
-			BrowserManager.GetInstance().GetDriver();
+			if(_scenarioContext.ScenarioExecutionStatus == ScenarioExecutionStatus.OK)
+				_scenarioContext.Add("Did I pass?", "probably");
 		}
 
 		[AfterTestRun]
